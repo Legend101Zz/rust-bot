@@ -9,6 +9,7 @@
 mod m1_enums;
 mod m2_structs;
 mod m3_trait;
+mod m4_polymorphism;
 
 // const OUR_COURSE: &str = "RUST with AutoGPT";
 

@@ -19,7 +19,6 @@ impl Attacker for Character {
     }
 }
 
-
 #[cfg(test)]
 mod test {
     use super::*;

@@ -11,6 +11,7 @@ mod m2_structs;
 mod m3_trait;
 mod m4_polymorphism;
 mod m5_lifetimes;
+mod m6_patterns;
 
 // const OUR_COURSE: &str = "RUST with AutoGPT";
 

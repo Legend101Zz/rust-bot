@@ -4,10 +4,14 @@ mod test {
 
     #[test]
 
-    fn add_ten_test() {
-        let x: u32 = 100;
-        let y: u32 = add_ten(x);
-        println! {"y is from test: {}",y}
-        assert_eq!(y, 110);
+    fn test_match_literals() {
+let number : i32 =20;
+
+match number{
+1=> println!("1"),
+2 |3|4|5|7|15|20 => println!("Got it"),
+_=>println!("no no")
+
+}
     }
 }

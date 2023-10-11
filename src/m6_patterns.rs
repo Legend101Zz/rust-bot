@@ -1,3 +1,28 @@
+#[derive(Debug)]
+enum Message {
+    Quit,
+    ChangeColor(i32, i32, i32),
+    Move { x: i32, y: i32 },
+    Write(String),
+}
+
+fn process_message(msg: Message) {
+    match msg {
+        Message::Quit => {
+            print!("I Quit !!")
+        }
+        Message::ChangeColor(red, green, blue) => {
+            println!("Red{} , Green{}, Blue {}", red, green, blue)
+        }
+        Message::Move { x, y } => {
+            println!("X is {} , Y {}", x, y)
+        }
+        Message::Write(text) => {
+            print!("{}", text)
+        }
+    }
+}
+
 #[cfg(test)]
 mod test {
     use super::*;

@@ -12,6 +12,7 @@ mod m3_trait;
 mod m4_polymorphism;
 mod m5_lifetimes;
 mod m6_patterns;
+mod m7_async;
 
 // const OUR_COURSE: &str = "RUST with AutoGPT";
 

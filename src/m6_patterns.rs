@@ -9,7 +9,7 @@ enum Message {
 fn process_message(msg: Message) {
     match msg {
         Message::Quit => {
-            print!("I Quit !!")
+            println!("I Quit !!")
         }
         Message::ChangeColor(red, green, blue) => {
             println!("Red{} , Green{}, Blue {}", red, green, blue)
@@ -18,7 +18,7 @@ fn process_message(msg: Message) {
             println!("X is {} , Y {}", x, y)
         }
         Message::Write(text) => {
-            print!("{}", text)
+            println!("{}", text)
         }
     }
 }
@@ -56,6 +56,23 @@ mod test {
             dbg!(i);
         }
 
-        print!("Hellooo {}", res)
+        println!("Hellooo {}", res)
     }
+
+
+    #[test]
+fn test_large_enum(){
+    let my_quit = Message::Quit;
+let my_color = Message::ChangeColor(10, 20, 30);
+let my_move = Message::Move{x :10,y :10};
+
+let my_write = Message::Write("hello".to_string());
+
+
+    process_message(my_quit);
+    process_message(my_color);
+    process_message(my_move);
+    process_message(my_write);
+}
+
 }

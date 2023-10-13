@@ -29,8 +29,21 @@ let person2 = "bob";
   dbg!(test_score);
 }
 
+#[test]
+fn tests_hashset(){
+
+let mut name_hs: HashSet<&str> = HashSet::new();
+
+name_hs.insert("alice");
+name_hs.insert("bob");
+name_hs.insert("jane");
+
+if name_hs.contains("bob"){
+  dbg!("bob is in the set!");
+}
 
 
+}
 
 
 }

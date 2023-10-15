@@ -19,6 +19,31 @@ enum GivenOptions<T> {
     Some(T),
 }
 
+
+#[derive(Debug)]
+
+enum Conveyance{
+     Car = 15,
+     Train =20,
+     Air =30
+}
+
+impl Conveyance {
+
+    fn travel_allowance(&self,miles:i32)->f32{
+
+        let allowance = match self{
+            Conveyance::Car => miles as f32 *14.0*2.0,
+            Conveyance::Train => miles as f32 *18.0*2.0,
+            Conveyance::Air => miles as f32 * 30.0 *2.0
+        };
+
+allowance
+    }
+}
+
+
+
 fn check_under_five(num_check: u8) -> GivenResult<u8, String> {
     if num_check < 5 {
         GivenResult::Ok(num_check)
@@ -72,5 +97,9 @@ mod test {
         let is_under_five_res_buil_in = check_under_five_built_in(6);
 
         dbg!(is_under_five_res_buil_in);
+
+
+        let participant_1 = Conveyance::Car;
+        dbg!(participant_1.travel_allowance(60));
     }
 }

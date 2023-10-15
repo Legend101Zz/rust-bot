@@ -6,6 +6,13 @@ struct User {
     active: bool,
 }
 
+fn square<T>(num: T) -> T
+where
+    T: std::ops::Mul<Output = T> + Copy + std::ops::Add,
+{
+    num * num
+}
+
 impl User {
     fn increment_signin_count(&mut self) {
         self.sign_in_count += 1;
@@ -41,6 +48,7 @@ mod test {
         change_username(&mut user_1, "mrigu");
 
         user_1.increment_signin_count();
+square(10.0);
 
         dbg!(user_1);
     }

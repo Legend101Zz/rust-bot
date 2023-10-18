@@ -50,6 +50,14 @@ fn main() {
     let new_num = add_num(7);
 
     dbg!(new_num);
+let mut vec_1 = vec!(1,2,3);
+    let some_clousre = ||{
+        println!("Hello from closure {:?}",vec_1);
+    };
+    some_clousre();
+    vec_1[1]=50;
+
+
 
     print!("{}", 99_22_800);
 }

@@ -51,13 +51,35 @@ fn main() {
 
     dbg!(new_num);
 let mut vec_1 = vec!(1,2,3);
-    let some_clousre = ||{
+    let mut some_clousre = ||{
+        vec_1.push(9);
         println!("Hello from closure {:?}",vec_1);
     };
     some_clousre();
-    vec_1[1]=50;
+  some_clousre();
 
 
 
     print!("{}", 99_22_800);
+
+
+    let mut f = min;
+let mut m = max;
+
+    println!{"hello mu {}",f(2,3)}
+    println!{"hello mu {}",m(2,3)}
+
 }
+
+
+
+fn max(x:i32,y:i32)->i32{
+    if x>y {x} else {y}
+}
+
+fn min(x:i32,y:i32)->i32{
+    if x<y {x} else {y}
+}
+
+
+

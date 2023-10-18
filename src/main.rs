@@ -69,8 +69,19 @@ let mut m = max;
     println!{"hello mu {}",f(2,3)}
     println!{"hello mu {}",m(2,3)}
 
+    prints_full_info(prints_name,"Mrigesh",10);
+
 }
 
+
+fn prints_name(name:&str){
+    println!("the name is{}",name)
+}
+
+fn prints_full_info(f:fn(&str),some_one:&str,age:i32){
+    let m= f(some_one);
+    println!("{:?} and my age is {}",m,age)
+}
 
 
 fn max(x:i32,y:i32)->i32{

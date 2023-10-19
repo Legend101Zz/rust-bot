@@ -71,6 +71,15 @@ let mut m = max;
 
     prints_full_info(prints_name,"Mrigesh",10);
 
+    let a = vec![0,1,2,3,4,5,6];
+    let  check = a.iter().any(|&x| x>0);
+    let check2 = a.iter().all(|&x| x>0);
+    let check3 = a.iter().find(|&&x| x>0);
+
+
+    print!("{check}{check2}{:?}",check3)
+
+
 }
 
 

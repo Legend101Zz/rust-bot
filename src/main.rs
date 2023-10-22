@@ -13,9 +13,17 @@ mod m4_polymorphism;
 mod m5_lifetimes;
 mod m6_patterns;
 mod m7_async;
+mod math_funcs;
 mod m8_collections;
 
 // const OUR_COURSE: &str = "RUST with AutoGPT";
+
+
+struct Rectangle{
+    length: i32,
+    width: i32,
+}
+
 
 fn main() {
     //   println!("Welcome to my nunnu on {}", OUR_COURSE);
@@ -77,7 +85,15 @@ let mut m = max;
     let check3 = a.iter().find(|&&x| x>0);
 
 
-    print!("{check}{check2}{:?}",check3)
+    print!("{check}{check2}{:?}",check3);
+
+
+
+    let rect1: Rectangle = Rectangle { length: 5, width: 10 };
+
+let area_rect1 = math_funcs::rect_area(&rect1.length, &rect1.width);
+
+
 
 
 }

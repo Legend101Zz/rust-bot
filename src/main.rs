@@ -13,17 +13,16 @@ mod m4_polymorphism;
 mod m5_lifetimes;
 mod m6_patterns;
 mod m7_async;
-mod math_funcs;
 mod m8_collections;
+mod m9_mods;
+mod math_funcs;
 
 // const OUR_COURSE: &str = "RUST with AutoGPT";
 
-
-struct Rectangle{
+struct Rectangle {
     length: i32,
     width: i32,
 }
-
 
 fn main() {
     //   println!("Welcome to my nunnu on {}", OUR_COURSE);
@@ -58,64 +57,60 @@ fn main() {
     let new_num = add_num(7);
 
     dbg!(new_num);
-let mut vec_1 = vec!(1,2,3);
-    let mut some_clousre = ||{
+    let mut vec_1 = vec![1, 2, 3];
+    let mut some_clousre = || {
         vec_1.push(9);
-        println!("Hello from closure {:?}",vec_1);
+        println!("Hello from closure {:?}", vec_1);
     };
     some_clousre();
-  some_clousre();
-
-
+    some_clousre();
 
     print!("{}", 99_22_800);
 
-
     let mut f = min;
-let mut m = max;
+    let mut m = max;
 
-    println!{"hello mu {}",f(2,3)}
-    println!{"hello mu {}",m(2,3)}
+    println! {"hello mu {}",f(2,3)}
+    println! {"hello mu {}",m(2,3)}
 
-    prints_full_info(prints_name,"Mrigesh",10);
+    prints_full_info(prints_name, "Mrigesh", 10);
 
-    let a = vec![0,1,2,3,4,5,6];
-    let  check = a.iter().any(|&x| x>0);
-    let check2 = a.iter().all(|&x| x>0);
-    let check3 = a.iter().find(|&&x| x>0);
+    let a = vec![0, 1, 2, 3, 4, 5, 6];
+    let check = a.iter().any(|&x| x > 0);
+    let check2 = a.iter().all(|&x| x > 0);
+    let check3 = a.iter().find(|&&x| x > 0);
 
+    print!("{check}{check2}{:?}", check3);
 
-    print!("{check}{check2}{:?}",check3);
+    let rect1: Rectangle = Rectangle {
+        length: 5,
+        width: 10,
+    };
 
-
-
-    let rect1: Rectangle = Rectangle { length: 5, width: 10 };
-
-let area_rect1 = math_funcs::rect_area(&rect1.length, &rect1.width);
-
-
-
-
+    let area_rect1 = math_funcs::rect_area(&rect1.length, &rect1.width);
 }
 
-
-fn prints_name(name:&str){
-    println!("the name is{}",name)
+fn prints_name(name: &str) {
+    println!("the name is{}", name)
 }
 
-fn prints_full_info(f:fn(&str),some_one:&str,age:i32){
-    let m= f(some_one);
-    println!("{:?} and my age is {}",m,age)
+fn prints_full_info(f: fn(&str), some_one: &str, age: i32) {
+    let m = f(some_one);
+    println!("{:?} and my age is {}", m, age)
 }
 
-
-fn max(x:i32,y:i32)->i32{
-    if x>y {x} else {y}
+fn max(x: i32, y: i32) -> i32 {
+    if x > y {
+        x
+    } else {
+        y
+    }
 }
 
-fn min(x:i32,y:i32)->i32{
-    if x<y {x} else {y}
+fn min(x: i32, y: i32) -> i32 {
+    if x < y {
+        x
+    } else {
+        y
+    }
 }
-
-
-

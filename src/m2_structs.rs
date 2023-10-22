@@ -48,7 +48,7 @@ mod test {
         change_username(&mut user_1, "mrigu");
 
         user_1.increment_signin_count();
-square(10.0);
+        square(10.0);
 
         dbg!(user_1);
     }

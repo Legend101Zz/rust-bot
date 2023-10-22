@@ -6,6 +6,9 @@
 // use crate::other_funcs::sum_funcs::add_ten;
 
 // use std::collections::{HashMap,BTreeMap};
+
+use array_tool::vec::*;
+
 mod m1_enums;
 mod m2_structs;
 mod m3_trait;
@@ -88,6 +91,13 @@ fn main() {
     };
 
     let area_rect1 = math_funcs::rect_area(&rect1.length, &rect1.width);
+
+    let vect_1 = vec![1, 1, 2, 3, 4, 5, 6];
+    let vect_2 = vec![1, 2, 3];
+
+    let intersection = vect_1.intersect(vect_2);
+
+    dbg!(&intersection);
 }
 
 fn prints_name(name: &str) {

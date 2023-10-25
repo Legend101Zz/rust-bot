@@ -9,6 +9,8 @@
 
 use array_tool::vec::*;
 
+mod m10_smart_pointers;
+mod m11_custom_smart_pointers;
 mod m1_enums;
 mod m2_structs;
 mod m3_trait;
@@ -18,7 +20,6 @@ mod m6_patterns;
 mod m7_async;
 mod m8_collections;
 mod m9_mods;
-mod m10_smart_pointers;
 mod math_funcs;
 
 // const OUR_COURSE: &str = "RUST with AutoGPT";

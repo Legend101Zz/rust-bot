@@ -40,6 +40,17 @@ impl linked_list{
     self.head = Some(new_head)
 
     }
+
+    fn remove(&mut self)-> Option<i32>{
+        let previous_head = self.head.take();
+        match previous_head{
+            None=> None,
+            Some(old_head)=>{
+                self.head = old_head.next;
+                Some(old_head.element)
+            }
+        }
+    }
 }
 #[cfg(test)]
 mod test {
@@ -67,6 +78,10 @@ mod test {
         
         list_2.add(5);
         list_2.add(6);
+
+        dbg!(&list_2);
+
+        list_2.remove();
 
         dbg!(list_2);
     }

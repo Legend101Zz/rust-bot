@@ -5,34 +5,30 @@ use std::ops::Deref;
 #[derive(Debug)]
 enum List {
     Cons(i32, Option<Box<List>>),
-}   
+}
 
-
-struct  MySmartPointer{value:i32}
+struct MySmartPointer {
+    value: i32,
+}
 
 impl MySmartPointer {
-    fn new(x:i32)->MySmartPointer{
-        MySmartPointer{value: x}
+    fn new(x: i32) -> MySmartPointer {
+        MySmartPointer { value: x }
     }
 }
 
-
-impl Deref for MySmartPointer{
+impl Deref for MySmartPointer {
     type Target = i32;
     fn deref(&self) -> &Self::Target {
-&self.value
-    }}
-
-impl Drop for MySmartPointer {
-    
-    fn drop(&mut self){
-       println!{"Droppinng the smartPointer object from memory {:?}", self.value}
+        &self.value
     }
 }
 
-
-
-
+impl Drop for MySmartPointer {
+    fn drop(&mut self) {
+        println! {"Droppinng the smartPointer object from memory {:?}", self.value}
+    }
+}
 
 #[cfg(test)]
 mod test {
@@ -49,12 +45,12 @@ mod test {
         let a = 50;
         let b = Box::new(a);
 
-        println!("{}", 50 ==a );
-        println!("{}", 50 ==*b ); // deref trait
-        //println!("{}", b ==a )
+        println!("{}", 50 == a);
+        println!("{}", 50 == *b); // deref trait
+                                  //println!("{}", b ==a )
 
-        let sptr = MySmartPointer::new(a); 
+        let sptr = MySmartPointer::new(a);
         let sptr2 = MySmartPointer::new(*b);
-        println!("{}", *sptr ==a );
+        println!("{}", *sptr == a);
     }
 }

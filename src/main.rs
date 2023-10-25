@@ -20,6 +20,7 @@ mod m6_patterns;
 mod m7_async;
 mod m8_collections;
 mod m9_mods;
+mod m12_linked_list;
 mod math_funcs;
 
 // const OUR_COURSE: &str = "RUST with AutoGPT";

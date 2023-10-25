@@ -10,6 +10,30 @@ struct Node {
 }
 
 type pointer = Option<Box<Node>>;
+
+
+impl linked_list{
+
+    fn create_empty_list()-> linked_list{
+        linked_list{head:None}
+    }
+
+    fn add(&mut self, element :i32 ){
+       match self.head{
+        None => self.head =Some(Box::new(Node{element , next :None})),
+
+        Some(previous_head)=>{
+            let new_head = Some(Box::new(Node{
+                element , next: Some(previous_head)
+            }));
+            self.head=new_head;
+           }
+
+       } 
+
+      
+    }
+}
 #[cfg(test)]
 mod test {
     use super::*;
@@ -29,6 +53,11 @@ mod test {
             })),
         };
 
-        dbg!(list.head.unwrap().next.unwrap().next.unwrap());
+        dbg!(list.head.unwrap().next.unwrap());
+
+
+        let list_2 = linked_list::create_empty_list();
+
+        dbg!(list_2);
     }
 }

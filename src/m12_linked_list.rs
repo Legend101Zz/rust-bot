@@ -19,19 +19,26 @@ impl linked_list{
     }
 
     fn add(&mut self, element :i32 ){
-       match self.head{
-        None => self.head =Some(Box::new(Node{element , next :None})),
+    //    match self.head{
+    //     None => self.head =Some(Box::new(Node{element , next :None})),
 
-        Some(previous_head)=>{
-            let new_head = Some(Box::new(Node{
-                element , next: Some(previous_head)
-            }));
-            self.head=new_head;
-           }
+    //     Some(previous_head)=>{
+    //         let new_head = Some(Box::new(Node{
+    //             element , next: Some(previous_head)
+    //         }));
+    //         self.head=new_head;
+    //        }
 
-       } 
+    //    } 
 
-      
+
+    let previous_head = self.head.take();
+    let new_head =Box::new(Node{
+        element , next : previous_head
+    });
+
+    self.head = Some(new_head)
+
     }
 }
 #[cfg(test)]
@@ -56,7 +63,10 @@ mod test {
         dbg!(list.head.unwrap().next.unwrap());
 
 
-        let list_2 = linked_list::create_empty_list();
+        let mut list_2 = linked_list::create_empty_list();
+        
+        list_2.add(5);
+        list_2.add(6);
 
         dbg!(list_2);
     }

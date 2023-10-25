@@ -1,5 +1,7 @@
 // to overcome the issue of assigning unnecessary heap space to nil value in box smart pointer
 
+use std::ops::Deref;
+
 #[derive(Debug)]
 enum List {
     Cons(i32, Option<Box<List>>),
@@ -13,6 +15,22 @@ impl MySmartPointer {
         MySmartPointer{value: x}
     }
 }
+
+
+impl Deref for MySmartPointer{
+    type Target = i32;
+    fn deref(&self) -> &Self::Target {
+&self.value
+    }}
+
+impl Drop for MySmartPointer {
+    
+    fn drop(&mut self){
+       println!{"Droppinng the smartPointer object from memory {:?}", self.value}
+    }
+}
+
+
 
 
 
@@ -34,5 +52,9 @@ mod test {
         println!("{}", 50 ==a );
         println!("{}", 50 ==*b ); // deref trait
         //println!("{}", b ==a )
+
+        let sptr = MySmartPointer::new(a); 
+        let sptr2 = MySmartPointer::new(*b);
+        println!("{}", *sptr ==a );
     }
 }

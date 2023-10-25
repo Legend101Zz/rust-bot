@@ -2,19 +2,18 @@
 
 #[derive(Debug)]
 enum List {
-    Cons(i32, Box<List>),
-    Nil,
-}
+    Cons(i32, Option<Box<List>>),
+}   
 
 #[cfg(test)]
 mod test {
     use super::*;
-    use List::{Cons, Nil};
+    use List::Cons;
 
     #[test]
 
     fn test_custom_smart_pointer() {
-        let list = Cons(1, Box::new(Cons(2, Box::new(Nil))));
+        let list = Cons(1, Some(Box::new(Cons(2, None))));
 
         dbg!(list);
     }

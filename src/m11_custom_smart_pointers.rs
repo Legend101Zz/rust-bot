@@ -102,5 +102,11 @@ mod test {
     fn test_custom_smart_pointer_2() {
       let sptr_1 = MySmartPointer::new("Mrigesh Thakur");
       my_fn(&sptr_1);
+
+      let some_vec = MySmartPointer::new(vec![1,23]);
+
+      for z in &*some_vec{
+        println!("The value is {}",z)
+      }
     }
 }

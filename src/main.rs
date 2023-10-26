@@ -12,6 +12,8 @@ use array_tool::vec::*;
 mod m10_smart_pointers;
 mod m11_custom_smart_pointers;
 mod m12_linked_list;
+mod m12_reference_counting_pointer;
+mod m13_double_linked_list;
 mod m1_enums;
 mod m2_structs;
 mod m3_trait;
@@ -21,8 +23,6 @@ mod m6_patterns;
 mod m7_async;
 mod m8_collections;
 mod m9_mods;
-mod m12_reference_counting_pointer;
-mod m13_double_linked_list;
 mod math_funcs;
 
 // const OUR_COURSE: &str = "RUST with AutoGPT";

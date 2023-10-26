@@ -55,8 +55,6 @@
 //     }
 // }
 
-
-
 use std::ops::Deref;
 
 #[derive(Debug)]
@@ -68,28 +66,27 @@ struct MySmartPointer<T: std::fmt::Debug> {
     value: T,
 }
 
-impl<T:std::fmt::Debug> MySmartPointer<T> {
-    fn new(x: T) -> MySmartPointer<T>{
+impl<T: std::fmt::Debug> MySmartPointer<T> {
+    fn new(x: T) -> MySmartPointer<T> {
         MySmartPointer { value: x }
     }
 }
 
-impl<T:std::fmt::Debug> Deref for MySmartPointer<T> {
+impl<T: std::fmt::Debug> Deref for MySmartPointer<T> {
     type Target = T;
     fn deref(&self) -> &Self::Target {
         &self.value
     }
 }
 
-impl<T:std::fmt::Debug> Drop for MySmartPointer<T> {
+impl<T: std::fmt::Debug> Drop for MySmartPointer<T> {
     fn drop(&mut self) {
         println! {"Droppinng the smartPointer object from memory {:?}", self.value}
     }
 }
 
-
-fn my_fn(str:&str){
-    println!("The string recieved from code is {}",str)
+fn my_fn(str: &str) {
+    println!("The string recieved from code is {}", str)
 }
 
 #[cfg(test)]
@@ -100,13 +97,13 @@ mod test {
     #[test]
 
     fn test_custom_smart_pointer_2() {
-      let sptr_1 = MySmartPointer::new("Mrigesh Thakur");
-      my_fn(&sptr_1);
+        let sptr_1 = MySmartPointer::new("Mrigesh Thakur");
+        my_fn(&sptr_1);
 
-      let some_vec = MySmartPointer::new(vec![1,23]);
+        let some_vec = MySmartPointer::new(vec![1, 23]);
 
-      for z in &*some_vec{
-        println!("The value is {}",z)
-      }
+        for z in &*some_vec {
+            println!("The value is {}", z)
+        }
     }
 }

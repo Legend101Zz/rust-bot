@@ -20,6 +20,8 @@ mod test {
     fn test_macro() {
      our_macro!();
 
-     println!("{}", our_macro!(2,2))
+     println!("{}", our_macro!(2,2));
+
+     println!{"Hello{}",2}
     }
 }

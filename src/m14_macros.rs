@@ -1,11 +1,13 @@
-macro_rules! our_macro {
-    () => {
-        1 + 1
-    };
-
-    ($e1: expr, $e2: expr) => {
-        $e1 + $e2
-    };
+macro_rules! mad_skills {
+// ($x:expr)=>{
+//     format!("You sent an expression :{}",$x)
+// }
+($x :ty)=>{
+    match stringify!($x){
+        "i32" => "You sent an i32 type".to_string(),
+        _=>"You sent something else".to_string()
+    }
+}
 }
 
 
@@ -33,11 +35,24 @@ macro_rules! input {
     };
 }
 
+macro_rules! my_vec {
+    ($($x:expr),+) => {
+        {
+            let mut temp_vec = Vec::new();
+
+        $(
+            temp_vec.push($x);
+         )+
+         temp_vec
+
+       
+        }
+    };
+}
+ 
 #[cfg(test)]
 mod test {
-    use std::ffi::c_long;
 
-    use super::*;
 
     #[test]
 
@@ -59,6 +74,10 @@ mod test {
 
         let str_multiple = string_concat!("Firts","Second");
 
-        println!("{}",str_multiple)
+        let some_var = mad_skills!(i32);
+        let mut x: Vec<i32>  = vec!();
+        let mut y = my_vec!(1,2,3,4);
+
+        dbg!(y);
     }
 }
